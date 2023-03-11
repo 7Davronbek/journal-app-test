@@ -1,0 +1,55 @@
+.AdminLayout {
+  background-color: #f6f8f9;
+
+  .myRow {
+    background: #ffffff;
+    border-radius: 24px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .navbarWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #353437;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  input,
+  select {
+    border: none;
+    background-color: transparent;
+  }
+
+  .inputWrap {
+    display: flex;
+    align-items: center;
+    background: #f5f5f7;
+    border-radius: 8px;
+    padding: 14px 22px;
+  }
+
+  .btn {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3c4bdc;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #3C4BDC;
+    border-radius: 16px;
+  }
+}

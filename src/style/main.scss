@@ -48,4 +48,11 @@ body {
       box-shadow: 0 0 10px #3c4bdc85 !important;
     }
   }
+
+  .container {
+
+    @media(min-width: 1200px) {
+      max-width: 1640px;
+    }
+  }
 }
