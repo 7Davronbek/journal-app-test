@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { CreateJournal, Journals, Login } from "./pages";
+import { ScrollToTop } from "./components";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       </Routes>
 
       <ToastContainer />
+      <ScrollToTop />
     </>
   );
 };
