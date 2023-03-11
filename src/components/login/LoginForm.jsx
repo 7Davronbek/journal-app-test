@@ -1,7 +1,27 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authAction } from "../../redux/authSlice";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.auth);
+
   const [passwordHidden, setPasswordHidden] = useState(false);
+  //   const [login, setLogin] = useState("");
+  //   const [password, setPassword] = useState("");
+  const login = useRef("");
+  const password = useRef("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      authAction.login({
+        login: login.current.value,
+        password: password.current.value,
+      })
+    );
+  };
+
   const handleShowPassword = () => {
     setPasswordHidden(true);
     setTimeout(() => {
@@ -11,7 +31,7 @@ const LoginForm = () => {
   return (
     <div className="LoginForm">
       <div className="row h-100">
-        <div className="col-lg-5">
+        <form onSubmit={handleSubmit} className="col-lg-5">
           <div className="cards">
             <div className="logo">
               <img src="/icons/logo.svg" alt="" />
@@ -20,7 +40,13 @@ const LoginForm = () => {
             <h2>Пожалуйста, введите свои регистрационные данные ниже</h2>
             <div className="inputWrap">
               <label htmlFor="login">Логин</label>
-              <input id="login" type="text" className="form-control" />
+              <input
+                required
+                ref={login}
+                id="login"
+                type="text"
+                className="form-control"
+              />
             </div>
 
             <div className="inputWrap">
@@ -28,6 +54,8 @@ const LoginForm = () => {
 
               <div className="eyeWrap">
                 <input
+                  required
+                  ref={password}
                   id="password"
                   type={`${passwordHidden ? "text" : "password"}`}
                   className="form-control"
@@ -44,7 +72,7 @@ const LoginForm = () => {
               </div>
             </div>
 
-            <button className="btn">
+            <button disabled={isLoading} type="submit" className="btn">
               Войти{" "}
               <span>
                 <img src="/icons/login.svg" alt="" />
@@ -56,7 +84,7 @@ const LoginForm = () => {
               <a href="tel: +998943698058">Свяжитесь с нами</a>
             </h3>
           </div>
-        </div>
+        </form>
 
         <div className="col-lg-6 ps-5 myCol">
           <h4>
