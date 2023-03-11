@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 #root {
   overflow-x: hidden;
@@ -50,9 +50,57 @@ body {
   }
 
   .container {
-
-    @media(min-width: 1200px) {
+    @media (min-width: 1200px) {
       max-width: 1640px;
     }
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+
+  background-color: #9a999b;
+
+  &.icon1 {
+    mask-image: url("../assets/icons/nav1.svg");
+    -webkit-mask-image: url("../assets/icons/nav1.svg");
+  }
+
+  &.icon2 {
+    mask-image: url("../assets/icons/nav2.svg");
+    -webkit-mask-image: url("../assets/icons/nav2.svg");
+  }
+
+  &.icon3 {
+    mask-image: url("../assets/icons/nav3.svg");
+    -webkit-mask-image: url("../assets/icons/nav3.svg");
+  }
+
+  &.icon4 {
+    mask-image: url("../assets/icons/nav4.svg");
+    -webkit-mask-image: url("../assets/icons/nav4.svg");
+  }
+
+  &.icon5 {
+    mask-image: url("../assets/icons/nav5.svg");
+    -webkit-mask-image: url("../assets/icons/nav5.svg");
+  }
+
+  &.icon6 {
+    mask-image: url("../assets/icons/nav6.svg");
+    -webkit-mask-image: url("../assets/icons/nav6.svg");
+  }
+
+  &.icon7 {
+    mask-image: url("../assets/icons/nav7.svg");
+    -webkit-mask-image: url("../assets/icons/nav7.svg");
   }
 }

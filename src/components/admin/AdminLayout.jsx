@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const AdminLayout = (props) => {
+  const location = useLocation();
   return (
     <div className="AdminLayout">
       <div className="container">
@@ -46,12 +47,32 @@ const AdminLayout = (props) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-3">
-            leftLayout Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Porro consequuntur aliquam consectetur maxime distinctio nobis ullam
-            laborum fuga officiis! Nobis deserunt rem pariatur explicabo
-            perferendis aut sed facilis ad autem!
+        <div className="row bottomRow">
+          <div className="col-2 leftSide">
+            <Link to="/journals">
+              <i className="icon icon1"></i>Аналитика
+            </Link>
+            <Link
+              className={`${location.pathname === "/journals" && "active"}`}
+              to="/journals"
+            >
+              <i className="icon icon2"></i>Журналы
+            </Link>
+            <Link to="/journals">
+              <i className="icon icon3"></i>Статьи
+            </Link>
+            <Link to="/journals">
+              <i className="icon icon4"></i>Конференции
+            </Link>
+            <Link to="/journals">
+              <i className="icon icon5"></i>Семинары
+            </Link>
+            <Link to="/journals">
+              <i className="icon icon6"></i>Настройки
+            </Link>
+            <Link className="last" to="/journals">
+              <i className="icon icon7"></i>Выйти
+            </Link>
           </div>
           <div className="col-9">{props.children}</div>
         </div>
