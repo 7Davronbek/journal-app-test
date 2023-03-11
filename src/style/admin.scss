@@ -104,6 +104,11 @@
     margin-top: 40px;
     padding-top: 10px;
     padding-bottom: 50px;
+
+    .leftSide {
+      position: sticky;
+      top: 30px;
+    }
   }
 }
 

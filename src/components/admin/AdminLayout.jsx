@@ -48,31 +48,33 @@ const AdminLayout = (props) => {
         </div>
 
         <div className="row bottomRow">
-          <div className="col-2 leftSide">
-            <Link to="/journals">
-              <i className="icon icon1"></i>Аналитика
-            </Link>
-            <Link
-              className={`${location.pathname === "/journals" && "active"}`}
-              to="/journals"
-            >
-              <i className="icon icon2"></i>Журналы
-            </Link>
-            <Link to="/journals">
-              <i className="icon icon3"></i>Статьи
-            </Link>
-            <Link to="/journals">
-              <i className="icon icon4"></i>Конференции
-            </Link>
-            <Link to="/journals">
-              <i className="icon icon5"></i>Семинары
-            </Link>
-            <Link to="/journals">
-              <i className="icon icon6"></i>Настройки
-            </Link>
-            <Link className="last" to="/journals">
-              <i className="icon icon7"></i>Выйти
-            </Link>
+          <div className="col-2 ">
+            <div className=" leftSide">
+              <Link to="/journals">
+                <i className="icon icon1"></i>Аналитика
+              </Link>
+              <Link
+                className={`${location.pathname === "/journals" && "active"}`}
+                to="/journals"
+              >
+                <i className="icon icon2"></i>Журналы
+              </Link>
+              <Link to="/journals">
+                <i className="icon icon3"></i>Статьи
+              </Link>
+              <Link to="/journals">
+                <i className="icon icon4"></i>Конференции
+              </Link>
+              <Link to="/journals">
+                <i className="icon icon5"></i>Семинары
+              </Link>
+              <Link to="/journals">
+                <i className="icon icon6"></i>Настройки
+              </Link>
+              <Link className="last" to="/journals">
+                <i className="icon icon7"></i>Выйти
+              </Link>
+            </div>
           </div>
           <div className="col-9 rightAdmin">{props.children}</div>
         </div>
