@@ -50,7 +50,12 @@ const AdminLayout = (props) => {
         <div className="row bottomRow">
           <div className="col-2 ">
             <div className=" leftSide">
-              <Link to="/journals">
+              <Link
+                className={`${
+                  location.pathname === "/create-journal" && "active"
+                }`}
+                to="/create-journal"
+              >
                 <i className="icon icon1"></i>Аналитика
               </Link>
               <Link

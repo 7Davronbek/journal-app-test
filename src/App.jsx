@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Journals, Login } from "./pages";
+import { CreateJournal, Journals, Login } from "./pages";
 
 const App = () => {
   return (
@@ -8,6 +8,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/journals" element={<Journals />} />
+        <Route path="/create-journal" element={<CreateJournal />} />
       </Routes>
 
       <ToastContainer />

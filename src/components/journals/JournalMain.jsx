@@ -1,8 +1,13 @@
 import React from "react";
 import AdminLayout from "../admin/AdminLayout";
 import JournalCards from "./JournalCards";
+import { useNavigate } from "react-router-dom";
 
 const JournalMain = () => {
+  const navigate = useNavigate();
+  const handleToCreate = () => {
+    navigate("/create-journal", { replace: true });
+  };
   return (
     <AdminLayout>
       <div className="JournalMain">
@@ -16,7 +21,7 @@ const JournalMain = () => {
               </i>
               <input type="text" placeholder="Поиск" className="form-control" />
             </div>
-            <button className="btn">
+            <button onClick={handleToCreate} className="btn">
               Добавить{" "}
               <span className="ms-2">
                 <img src="/icons/plus.svg" alt="" />
