@@ -252,6 +252,21 @@
       }
     }
   }
+
+  .cardsWrap {
+    position: absolute;
+    // bottom: -54px;
+    top: 50px;
+    background: white;
+    padding: 20px 10px;
+    border-radius: 7px;
+    left: 60px;
+    width: 300px;
+    box-shadow: 0 0 10px silver;
+    z-index: 9;
+    max-width: 400px;
+    overflow-y: auto;
+  }
 }
 
 .CreateJournalForm {

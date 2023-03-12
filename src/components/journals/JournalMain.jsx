@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminLayout from "../admin/AdminLayout";
 import JournalCards from "./JournalCards";
 import { useNavigate } from "react-router-dom";
+import JournalSearch from "./JournalSearch";
 
 const JournalMain = () => {
+  const [value, setValue] = useState("");
   const navigate = useNavigate();
   const handleToCreate = () => {
     navigate("/create-journal", { replace: true });
+  };
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const onSearch = (key) => {
+    setValue(key);
   };
   return (
     <AdminLayout>
@@ -15,11 +25,17 @@ const JournalMain = () => {
           <h1>Журналы</h1>
 
           <div className="search">
-            <div className="inputWrap">
+            <div className="inputWrap position-relative">
               <i>
                 <img src="/icons/search.svg" alt="" />
               </i>
-              <input type="text" placeholder="Поиск" className="form-control" />
+              <input
+                onChange={onChange}
+                type="text"
+                placeholder="Поиск"
+                className="form-control"
+              />
+              <JournalSearch value={value} onSearch={onSearch} />
             </div>
             <button onClick={handleToCreate} className="btn">
               Добавить{" "}
