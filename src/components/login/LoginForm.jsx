@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authAction } from "../../redux/authSlice";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -72,12 +73,12 @@ const LoginForm = () => {
               </div>
             </div>
 
-            <button disabled={isLoading} type="submit" className="btn">
+            <Link to='/journals' disabled={isLoading} type="submit" className="btn">
               Войти{" "}
               <span>
                 <img src="/icons/login.svg" alt="" />
               </span>
-            </button>
+            </Link>
 
             <h3>
               У вас нет учетной записи?{" "}

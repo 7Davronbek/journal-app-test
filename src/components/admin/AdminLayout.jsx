@@ -38,12 +38,12 @@ const AdminLayout = (props) => {
               <option value="en">English</option>
               <option value="uz">O'zbek</option>
             </select>
-            <button className="btn">
+            <Link to="/login" className="btn">
               Выйти{" "}
               <span className="ms-2">
                 <img src="/icons/logoutBlue.svg" alt="" />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ const AdminLayout = (props) => {
               <Link to="/journals">
                 <i className="icon icon6"></i>Настройки
               </Link>
-              <Link className="last" to="/journals">
+              <Link className="last" to="/login">
                 <i className="icon icon7"></i>Выйти
               </Link>
             </div>
