@@ -1,12 +1,14 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authAction } from "../../redux/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA_KEY } from "../../constants";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { isLoading } = useSelector((state) => state.auth);
 
   const [passwordHidden, setPasswordHidden] = useState(false);
@@ -18,8 +20,9 @@ const LoginForm = () => {
     e.preventDefault();
     dispatch(
       authAction.login({
-        login: login.current.value,
+        email: login.current.value,
         password: password.current.value,
+        navigate
       })
     );
   };
@@ -82,7 +85,7 @@ const LoginForm = () => {
 
             <button
               //   to="/journals"
-              disabled={disabled}
+              disabled={disabled || isLoading}
               type="submit"
               className="btn"
             >
