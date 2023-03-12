@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "../utils/axios";
+import axios, { CONFIG } from "../utils/axios";
 import { toast } from "react-toastify";
 
 const journal = "journal";
@@ -13,9 +13,24 @@ const getJournals = createAsyncThunk(`${journal}/getAllJournals`, async () => {
 // CREATE JOURNAL
 const createJournal = createAsyncThunk(
   `${journal}/createJournal`,
-  async (formData) => {
-    const { data } = await axios.post("/user/journal_create/", formData);
-    console.log(formData);
+  async ({ formData, navigate }) => {
+    const { data } = await axios.post(
+      "/user/journal_create/",
+      formData,
+      CONFIG
+    );
+    if (data) {
+      navigate("/journals");
+      return data;
+    }
+  }
+);
+
+// DELETE JOURNAL
+const deleteJournal = createAsyncThunk(
+  `${journal}/deleteJournal`,
+  async (id) => {
+    const { data } = await axios.delete(`/user/journal_delete/${id}`, CONFIG);
     return data;
   }
 );
@@ -25,6 +40,8 @@ const initialState = {
   isJournals: false,
 
   isCreateJournals: false,
+
+  isDeleteJournal: false,
 };
 
 export const journalSlice = createSlice({
@@ -49,9 +66,22 @@ export const journalSlice = createSlice({
       }),
       builder.addCase(createJournal.fulfilled, (state, action) => {
         state.isCreateJournals = false;
+        toast.success("Journal created successfully.");
       }),
       builder.addCase(createJournal.rejected, (state) => {
         state.isCreateJournals = false;
+        toast.error("Something went wrong. Please try again.");
+      }),
+      // DELETE JOURNAL
+      builder.addCase(deleteJournal.pending, (state) => {
+        state.isDeleteJournal = true;
+      }),
+      builder.addCase(deleteJournal.fulfilled, (state, action) => {
+        state.isDeleteJournal = false;
+        toast.success("Journal deleted successfully.");
+      }),
+      builder.addCase(deleteJournal.rejected, (state) => {
+        state.isDeleteJournal = false;
         toast.error("Something went wrong. Please try again.");
       });
   },
@@ -61,6 +91,7 @@ export const journalAction = {
   ...journalSlice.actions,
   getJournals,
   createJournal,
+  deleteJournal,
 };
 
 export default journalSlice.reducer;

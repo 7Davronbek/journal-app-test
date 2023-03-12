@@ -15,7 +15,15 @@ const JournalCards = () => {
 
   return (
     <>
-      {isJournals && <h3>Loading...</h3>}
+      {isJournals && (
+        <h3 className="text-center py-5">
+          Loading...{" "}
+          <span
+            style={{ color: "blue" }}
+            className="spinner-border spinner-border-sm"
+          ></span>
+        </h3>
+      )}
 
       {journals && (
         <>

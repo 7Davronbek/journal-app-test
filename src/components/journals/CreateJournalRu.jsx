@@ -1,28 +1,31 @@
 import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { journalAction } from "../../redux/journalSlice";
+import { useNavigate } from "react-router-dom";
 
 const CreateJournalRu = ({ back }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isCreateJournals } = useSelector((state) => state.journal);
 
-  const [pdf_file, setPdf_file] = useState("");
-  const [image, setImage] = useState("");
+  const [pdf_file, setPdf_file] = useState(null);
+  const [image, setImage] = useState(null);
 
+  const date = useRef("");
   const name_ru = useRef("");
   const description_ru = useRef("");
   const keyword_ru = useRef("");
-  const date = useRef("");
+
+  const name_en = useRef("");
+  const description_en = useRef("");
+  const keyword_en = useRef("");
+
+  const name_uz = useRef("");
+  const description_uz = useRef("");
+  const keyword_uz = useRef("");
 
   const createJournal = (e) => {
     e.preventDefault();
-    // const data = {
-    //   name_ru: name_ru.current.value,
-    //   description_ru: description_ru.current.value,
-    //   keyword_ru: keyword_ru.current.value,
-    //   date: date.current.value,
-    //   image,
-    //   pdf_file,
-    // };
     const formData = new FormData();
     formData.append("name_ru", name_ru.current.value);
     formData.append("description_ru", description_ru.current.value);
@@ -30,7 +33,16 @@ const CreateJournalRu = ({ back }) => {
     formData.append("date", date.current.value);
     formData.append("image", image);
     formData.append("pdf_file", pdf_file);
-    dispatch(journalAction.createJournal(formData));
+
+    formData.append("name_uz", name_uz.current.value);
+    formData.append("description_uz", description_uz.curr);
+    formData.append("keyword_uz", keyword_uz.curr);
+
+    formData.append("name_en", name_en.curr);
+    formData.append("description_en", description_en.curr);
+    formData.append("keyword_en", keyword_en.curr);
+
+    dispatch(journalAction.createJournal({ formData, navigate }));
   };
 
   return (
@@ -113,12 +125,68 @@ const CreateJournalRu = ({ back }) => {
             cols="30"
             rows="10"
           ></textarea>
+        </div>
+
+        <div className="col-12 mt-5">
+          <h3 className="mb-3">In English</h3>
+          <input
+            ref={name_en}
+            required
+            type="text"
+            placeholder="Название журнала"
+            className="form-control mb-4"
+          />
+          <input
+            ref={keyword_en}
+            required
+            type="text"
+            placeholder="Ключевое слово"
+            className="form-control mb-4"
+          />
+          <textarea
+            ref={description_en}
+            required
+            className="form-control mb-4"
+            placeholder="Описание"
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+
+          <h3 className="my-3">O'zbekcha</h3>
+          <input
+            ref={name_uz}
+            required
+            type="text"
+            placeholder="Название журнала"
+            className="form-control mb-4"
+          />
+          <input
+            ref={keyword_uz}
+            required
+            type="text"
+            placeholder="Ключевое слово"
+            className="form-control mb-4"
+          />
+          <textarea
+            ref={description_uz}
+            required
+            className="form-control mb-4"
+            placeholder="Описание"
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
 
           <div className="buttonWrap">
             <button onClick={back} className="btn back">
               Отменить
             </button>
-            <button type="submit" className="btn save">
+            <button
+              disabled={isCreateJournals}
+              type="submit"
+              className="btn save"
+            >
               Сохранить
             </button>
           </div>
