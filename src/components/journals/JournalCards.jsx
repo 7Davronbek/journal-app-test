@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import JournalDeleteModal from "../modal/JournalDeleteModal";
+import { useDispatch, useSelector } from "react-redux";
+import { journalAction } from "../../redux/journalSlice";
 
 const JournalCards = () => {
+  const { journals, isJournals } = useSelector((state) => state.journal);
+  const dispatch = useDispatch();
+
   const [isModal, setIsModal] = useState(false);
+
+  useEffect(() => {
+    dispatch(journalAction.getJournals());
+  }, []);
+
   return (
     <>
       <div className="col-lg-6">

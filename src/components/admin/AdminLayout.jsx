@@ -81,7 +81,7 @@ const AdminLayout = (props) => {
               </Link>
             </div>
           </div>
-          <div className="col-9 rightAdmin">{props.children}</div>
+          <div className="col-10 rightAdmin">{props.children}</div>
         </div>
       </div>
     </div>
