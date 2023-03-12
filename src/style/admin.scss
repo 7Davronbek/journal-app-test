@@ -243,3 +243,29 @@
     }
   }
 }
+
+.CreateJournalForm {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+
+  .nav {
+    margin-bottom: 30px !important;
+
+    .nav-link {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      color: #353437;
+      border-radius: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      margin-right: 40px;
+
+      &.active {
+        color: #3c4bdc !important;
+        border-bottom: 2px solid #3c4bdc !important;
+      }
+    }
+  }
+}
