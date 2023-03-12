@@ -281,9 +281,14 @@
     .imgWrap {
       position: relative;
       margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
 
       input {
-        display: none;
+        position: absolute;
+        opacity: 0;
+        top: 40%;
+        left: 0;
       }
 
       label {
@@ -300,9 +305,13 @@
 
     .fileWrap {
       position: relative;
+      overflow: hidden;
 
       input {
-        display: none;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
 
       label {
