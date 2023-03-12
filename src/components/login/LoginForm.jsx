@@ -2,14 +2,15 @@ import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authAction } from "../../redux/authSlice";
 import { Link } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
+import { RECAPTCHA_KEY } from "../../constants";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.auth);
 
   const [passwordHidden, setPasswordHidden] = useState(false);
-  //   const [login, setLogin] = useState("");
-  //   const [password, setPassword] = useState("");
+  const [disabled, setDisabled] = useState(true);
   const login = useRef("");
   const password = useRef("");
 
@@ -28,6 +29,10 @@ const LoginForm = () => {
     setTimeout(() => {
       setPasswordHidden(false);
     }, 2000);
+  };
+
+  const recaptchaChange = (e) => {
+    setDisabled(false);
   };
   return (
     <div className="LoginForm">
@@ -73,12 +78,19 @@ const LoginForm = () => {
               </div>
             </div>
 
-            <Link to='/journals' disabled={isLoading} type="submit" className="btn">
+            <ReCAPTCHA sitekey={RECAPTCHA_KEY} onChange={recaptchaChange} />
+
+            <button
+              //   to="/journals"
+              disabled={disabled}
+              type="submit"
+              className="btn"
+            >
               Войти{" "}
               <span>
                 <img src="/icons/login.svg" alt="" />
               </span>
-            </Link>
+            </button>
 
             <h3>
               У вас нет учетной записи?{" "}
