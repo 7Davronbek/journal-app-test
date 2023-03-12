@@ -15,11 +15,7 @@ const JournalCards = () => {
 
   return (
     <>
-      {isJournals && (
-        <>
-          <h3>Loading...</h3>
-        </>
-      )}
+      {isJournals && <h3>Loading...</h3>}
 
       {journals && (
         <>
@@ -31,9 +27,7 @@ const JournalCards = () => {
                 </div>
                 <div className="mid">
                   <h2>{item.id}</h2>
-                  <h3>
-                    {item.name_ru}
-                  </h3>
+                  <h3>{item.name_ru}</h3>
                   <h4>
                     Ключевое слово: <b>{item.keyword}</b>
                   </h4>

@@ -1,6 +1,10 @@
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { journalAction } from "../../redux/journalSlice";
 
 const CreateJournalRu = ({ back }) => {
+  const dispatch = useDispatch();
+
   const [pdf_file, setPdf_file] = useState("");
   const [image, setImage] = useState("");
 
@@ -11,16 +15,22 @@ const CreateJournalRu = ({ back }) => {
 
   const createJournal = (e) => {
     e.preventDefault();
-    const data = {
-      name_ru: name_ru.current.value,
-      description_ru: description_ru.current.value,
-      keyword_ru: keyword_ru.current.value,
-      date: date.current.value,
-      image,
-      pdf_file,
-      date,
-    };
-    console.log(data);
+    // const data = {
+    //   name_ru: name_ru.current.value,
+    //   description_ru: description_ru.current.value,
+    //   keyword_ru: keyword_ru.current.value,
+    //   date: date.current.value,
+    //   image,
+    //   pdf_file,
+    // };
+    const formData = new FormData();
+    formData.append("name_ru", name_ru.current.value);
+    formData.append("description_ru", description_ru.current.value);
+    formData.append("keyword_ru", keyword_ru.current.value);
+    formData.append("date", date.current.value);
+    formData.append("image", image);
+    formData.append("pdf_file", pdf_file);
+    dispatch(journalAction.createJournal(formData));
   };
 
   return (
