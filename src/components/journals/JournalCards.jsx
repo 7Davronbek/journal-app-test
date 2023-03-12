@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import JournalDeleteModal from "../modal/JournalDeleteModal";
 
 const JournalCards = () => {
+  const [isModal, setIsModal] = useState(false);
   return (
     <>
       <div className="col-lg-6">
@@ -45,7 +47,7 @@ const JournalCards = () => {
             <button className="btn edit">
               <img src="/icons/edit.svg" alt="" />
             </button>
-            <button className="btn delete">
+            <button onClick={() => setIsModal(true)} className="btn delete">
               <img src="/icons/delete.svg" alt="" />
             </button>
           </div>
@@ -93,7 +95,7 @@ const JournalCards = () => {
             <button className="btn edit">
               <img src="/icons/edit.svg" alt="" />
             </button>
-            <button className="btn delete">
+            <button onClick={() => setIsModal(true)} className="btn delete">
               <img src="/icons/delete.svg" alt="" />
             </button>
           </div>
@@ -141,7 +143,7 @@ const JournalCards = () => {
             <button className="btn edit">
               <img src="/icons/edit.svg" alt="" />
             </button>
-            <button className="btn delete">
+            <button onClick={() => setIsModal(true)} className="btn delete">
               <img src="/icons/delete.svg" alt="" />
             </button>
           </div>
@@ -189,12 +191,14 @@ const JournalCards = () => {
             <button className="btn edit">
               <img src="/icons/edit.svg" alt="" />
             </button>
-            <button className="btn delete">
+            <button onClick={() => setIsModal(true)} className="btn delete">
               <img src="/icons/delete.svg" alt="" />
             </button>
           </div>
         </div>
       </div>
+
+      <JournalDeleteModal isModal={isModal} setIsModal={setIsModal} />
     </>
   );
 };

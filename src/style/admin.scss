@@ -371,3 +371,94 @@
     }
   }
 }
+
+.JournalDeleteModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3c4bdc3d;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .4s ease-in-out;
+
+  .modalCards {
+    filter: drop-shadow(0px 2px 15px rgba(33, 33, 52, 0.1));
+    border-radius: 8px;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+
+    .cardsHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px;
+      background-color: #f6f8f9;
+
+      h1 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 150%;
+        color: #020105;
+      }
+    }
+
+    .cardsBody {
+      text-align: center;
+
+      span {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 8px;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: #353437;
+        margin-bottom: 39px;
+      }
+    }
+
+    .cardsFooter {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .btn {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #353437;
+        border-radius: 8px;
+        padding: 16px 52px;
+
+        &.back {
+          background: #ffffff;
+          border: 1px solid #dcdce4;
+        }
+
+        &.del {
+          color: #d02b20;
+          background: #fcecea;
+          border: 1px solid #f5c0b8;
+        }
+      }
+    }
+  }
+
+  &.active {
+      opacity: 1;
+      visibility: visible;
+  }
+}

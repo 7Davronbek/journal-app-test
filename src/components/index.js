@@ -5,3 +5,4 @@ export { default as JournalCards } from "./journals/JournalCards";
 export { default as CreateJournalForm } from "./journals/CreateJournalForm";
 export { default as CreateJournalRu } from "./journals/CreateJournalRu";
 export { default as ScrollToTop } from "./ScrollToTop";
+export { default as JournalDeleteModal } from "./modal/JournalDeleteModal"
