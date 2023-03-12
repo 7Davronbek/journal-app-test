@@ -24,7 +24,7 @@ export const journalSlice = createSlice({
     }),
       builder.addCase(getJournals.fulfilled, (state, action) => {
         state.isJournals = false;
-        console.log(action);
+        state.journals = action.payload.results;
       }),
       builder.addCase(getJournals.rejected, (state) => {
         state.isJournals = false;
