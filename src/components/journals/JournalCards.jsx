@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import JournalDeleteModal from "../modal/JournalDeleteModal";
 import { useDispatch, useSelector } from "react-redux";
 import { journalAction } from "../../redux/journalSlice";
+import { Link } from "react-router-dom";
 
 const JournalCards = () => {
   const { journals, isJournals } = useSelector((state) => state.journal);
@@ -29,10 +30,10 @@ const JournalCards = () => {
           {journals?.map((item, index) => (
             <div key={index} className="col-lg-6">
               <div className="cards">
-                <div className="img">
+                <Link to={`/journal/${item.id}`} className="img">
                   <img src={item.image} alt="" />
-                </div>
-                <div className="mid">
+                </Link>
+                <Link to={`/journal/${item.id}`} className="mid">
                   <h2>{item.id}</h2>
                   <h3>{item.name_ru}</h3>
                   <h4>
@@ -61,7 +62,7 @@ const JournalCards = () => {
                       <p>{item.views}</p>
                     </div>
                   </div>
-                </div>
+                </Link>
                 <div className="editWrap">
                   <button className="btn edit">
                     <img src="/icons/edit.svg" alt="" />
