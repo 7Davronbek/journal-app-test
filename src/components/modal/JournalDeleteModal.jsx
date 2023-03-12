@@ -1,6 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { journalAction } from "../../redux/journalSlice";
 
-const JournalDeleteModal = ({ isModal, setIsModal }) => {
+const JournalDeleteModal = ({ isModal, setIsModal, deleteId }) => {
+  const dispatch = useDispatch();
+
+  const handleDeleteJournal = async () => {
+    await dispatch(journalAction.deleteJournal(deleteId));
+    await dispatch(journalAction.getJournals());
+    setIsModal(false);
+  };
+
   return (
     <div
       onClick={() => setIsModal(false)}
@@ -26,7 +36,7 @@ const JournalDeleteModal = ({ isModal, setIsModal }) => {
                 <button onClick={() => setIsModal(false)} className="btn back">
                   Отменить
                 </button>
-                <button className="btn del">
+                <button onClick={handleDeleteJournal} className="btn del">
                   <span className="me-2">
                     <img src="/icons/delete.svg" alt="" />
                   </span>

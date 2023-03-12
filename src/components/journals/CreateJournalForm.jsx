@@ -30,7 +30,7 @@ const CreateJournalForm = () => {
               На русском
             </button>
           </li>
-          <li className="nav-item" role="presentation">
+          {/* <li className="nav-item" role="presentation">
             <button
               className="nav-link"
               id="pills-profile-tab"
@@ -57,7 +57,7 @@ const CreateJournalForm = () => {
             >
               In English
             </button>
-          </li>
+          </li> */}
 
           <button onClick={back} className="btn ms-auto">
             <img src="/icons/close.svg" alt="" />

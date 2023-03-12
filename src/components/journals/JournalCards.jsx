@@ -8,6 +8,7 @@ const JournalCards = () => {
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
 
   useEffect(() => {
     dispatch(journalAction.getJournals());
@@ -15,7 +16,7 @@ const JournalCards = () => {
 
   return (
     <>
-      {isJournals && (
+      {isJournals ? (
         <h3 className="text-center py-5">
           Loading...{" "}
           <span
@@ -23,11 +24,9 @@ const JournalCards = () => {
             className="spinner-border spinner-border-sm"
           ></span>
         </h3>
-      )}
-
-      {journals && (
+      ) : (
         <>
-          {journals.map((item, index) => (
+          {journals?.map((item, index) => (
             <div key={index} className="col-lg-6">
               <div className="cards">
                 <div className="img">
@@ -68,7 +67,9 @@ const JournalCards = () => {
                     <img src="/icons/edit.svg" alt="" />
                   </button>
                   <button
-                    onClick={() => setIsModal(true)}
+                    onClick={() => {
+                      setIsModal(true), setDeleteId(item.id);
+                    }}
                     className="btn delete"
                   >
                     <img src="/icons/delete.svg" alt="" />
@@ -80,7 +81,13 @@ const JournalCards = () => {
         </>
       )}
 
-      <JournalDeleteModal isModal={isModal} setIsModal={setIsModal} />
+      {/* {journals && <></>} */}
+
+      <JournalDeleteModal
+        deleteId={deleteId}
+        isModal={isModal}
+        setIsModal={setIsModal}
+      />
     </>
   );
 };
