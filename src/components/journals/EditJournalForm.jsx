@@ -103,7 +103,7 @@ const EditJournalForm = () => {
             <div className="col-lg-3">
               <div className="imgWrap">
                 <input
-                  required
+                  //   required
                   accept="image/png, image/jpeg, image/jpg, image/webp, image/svg"
                   id="img"
                   type="file"
@@ -141,7 +141,7 @@ const EditJournalForm = () => {
               </div>
               <div className="fileWrap">
                 <input
-                  required
+                  //   required
                   accept=".pdf"
                   type="file"
                   className="file"

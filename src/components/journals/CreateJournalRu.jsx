@@ -30,7 +30,7 @@ const CreateJournalRu = ({ back }) => {
     formData.append("date", date.current.value);
     formData.append("image", image);
     formData.append("pdf_file", pdf_file);
-    
+
     formData.append("name_ru", name_ru.current.value);
     formData.append("description_ru", description_ru.current.value);
     formData.append("keyword_ru", keyword_ru.current.value);
@@ -47,7 +47,7 @@ const CreateJournalRu = ({ back }) => {
   };
 
   return (
-    <div className="CreateJournalRu">
+    <div className="CreateJournalRu ">
       <form onSubmit={createJournal} className="row">
         <div className="col-12">
           <h1>Добавить журналы</h1>
