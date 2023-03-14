@@ -11,3 +11,5 @@ export { default as EditJournalForm } from "./journals/EditJournalForm";
 export { default as ScrollToTop } from "./ScrollToTop";
 export { default as JournalDeleteModal } from "./modal/JournalDeleteModal";
 export { default as PageNotFound } from "./404/PageNotFound";
+
+export { default as Loading } from "./loading/Loading";

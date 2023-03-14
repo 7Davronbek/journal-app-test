@@ -3,6 +3,7 @@ import JournalDeleteModal from "../modal/JournalDeleteModal";
 import { useDispatch, useSelector } from "react-redux";
 import { journalAction } from "../../redux/journalSlice";
 import { Link } from "react-router-dom";
+import Loading from "../loading/Loading";
 
 const JournalCards = () => {
   const { journals, isJournals } = useSelector((state) => state.journal);
@@ -18,13 +19,7 @@ const JournalCards = () => {
   return (
     <>
       {isJournals ? (
-        <h3 className="text-center py-5">
-          Loading...{" "}
-          <span
-            style={{ color: "blue" }}
-            className="spinner-border spinner-border-sm"
-          ></span>
-        </h3>
+        <Loading />
       ) : (
         <>
           {journals?.map((item, index) => (
