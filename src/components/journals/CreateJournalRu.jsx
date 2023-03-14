@@ -27,12 +27,13 @@ const CreateJournalRu = ({ back }) => {
   const createJournal = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name_ru", name_ru.current.value);
-    formData.append("description_ru", description_ru.current.value);
-    formData.append("keyword_ru", keyword_ru.current.value);
     formData.append("date", date.current.value);
     formData.append("image", image);
     formData.append("pdf_file", pdf_file);
+    
+    formData.append("name_ru", name_ru.current.value);
+    formData.append("description_ru", description_ru.current.value);
+    formData.append("keyword_ru", keyword_ru.current.value);
 
     formData.append("name_uz", name_uz.current.value);
     formData.append("description_uz", description_uz.current.value);
