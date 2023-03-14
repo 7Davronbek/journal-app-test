@@ -35,12 +35,12 @@ const CreateJournalRu = ({ back }) => {
     formData.append("pdf_file", pdf_file);
 
     formData.append("name_uz", name_uz.current.value);
-    formData.append("description_uz", description_uz.curr);
-    formData.append("keyword_uz", keyword_uz.curr);
+    formData.append("description_uz", description_uz.current.value);
+    formData.append("keyword_uz", keyword_uz.current.value);
 
-    formData.append("name_en", name_en.curr);
-    formData.append("description_en", description_en.curr);
-    formData.append("keyword_en", keyword_en.curr);
+    formData.append("name_en", name_en.current.value);
+    formData.append("description_en", description_en.current.value);
+    formData.append("keyword_en", keyword_en.current.value);
 
     dispatch(journalAction.createJournal({ formData, navigate }));
   };

@@ -35,6 +35,15 @@ const deleteJournal = createAsyncThunk(
   }
 );
 
+// GET SINGLE JOURNAL
+const getJournal = createAsyncThunk(
+  `${journal}/getSingleJournal`,
+  async (id) => {
+    const { data } = await axios.get(`/journal/${id}`, CONFIG);
+    return data;
+  }
+);
+
 const initialState = {
   journals: null,
   isJournals: false,
@@ -42,6 +51,9 @@ const initialState = {
   isCreateJournals: false,
 
   isDeleteJournal: false,
+
+  journal: null,
+  isJournal: false,
 };
 
 export const journalSlice = createSlice({
@@ -84,6 +96,19 @@ export const journalSlice = createSlice({
         state.isDeleteJournal = false;
         toast.error("Something went wrong. Please try again.");
       });
+
+    // GET SINGLE JOURNAL
+    builder.addCase(getJournal.pending, (state) => {
+      state.isJournal = true;
+    }),
+      builder.addCase(getJournal.fulfilled, (state, action) => {
+        state.isJournal = false;
+        state.journal = action.payload;
+      }),
+      builder.addCase(getJournal.rejected, (state) => {
+        state.isJournal = false;
+        toast.error("Network Error. Please try later.");
+      });
   },
 });
 
@@ -92,6 +117,7 @@ export const journalAction = {
   getJournals,
   createJournal,
   deleteJournal,
+  getJournal,
 };
 
 export default journalSlice.reducer;

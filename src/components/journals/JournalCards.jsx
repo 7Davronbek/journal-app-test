@@ -64,9 +64,9 @@ const JournalCards = () => {
                   </div>
                 </Link>
                 <div className="editWrap">
-                  <button className="btn edit">
+                  <Link to={`/edit-journal/${item.id}`} className="btn edit">
                     <img src="/icons/edit.svg" alt="" />
-                  </button>
+                  </Link>
                   <button
                     onClick={() => {
                       setIsModal(true), setDeleteId(item.id);
