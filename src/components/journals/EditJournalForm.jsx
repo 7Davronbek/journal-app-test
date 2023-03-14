@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import AdminLayout from "../admin/AdminLayout";
 import axios, { CONFIG } from "../../utils/axios";
 import { toast } from "react-toastify";
+import Loading from "../loading/Loading";
 
 const EditJournalForm = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const [singleJournal, setSingleJournal] = useState(null);
@@ -79,10 +81,13 @@ const EditJournalForm = () => {
     await axios
       .patch(`/user/journal_update/${id}/`, formData, CONFIG)
       .then((res) => {
-        console.log(res);
+        setIsPosted(false);
+        navigate(`/journal/${id}`);
+        toast.warning(`Journal ID: ${id} is updated.`);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Bad Request. Server error.");
+        setIsPosted(false);
       });
   };
 
@@ -94,7 +99,7 @@ const EditJournalForm = () => {
     <AdminLayout>
       <div className="EditJournalForm CreateJournalForm">
         {isLoading ? (
-          <h5>Loading...</h5>
+          <Loading />
         ) : (
           <form onSubmit={updateJournal} className="row">
             <div className="col-12">
@@ -103,7 +108,7 @@ const EditJournalForm = () => {
             <div className="col-lg-3">
               <div className="imgWrap">
                 <input
-                  //   required
+                  required
                   accept="image/png, image/jpeg, image/jpg, image/webp, image/svg"
                   id="img"
                   type="file"
@@ -125,17 +130,7 @@ const EditJournalForm = () => {
                       alt=""
                     />
                   ) : (
-                    image && (
-                      <img
-                        src={image}
-                        style={{
-                          width: "100%",
-                          height: "337px",
-                          objectFit: "cover",
-                        }}
-                        alt=""
-                      />
-                    )
+                    <span>Update image</span>
                   )}
                 </label>
               </div>
@@ -161,11 +156,7 @@ const EditJournalForm = () => {
                     {pdf_file.name}
                   </a>
                 ) : (
-                  pdf_file && (
-                    <a target="_blank" href={pdf_file}>
-                      {pdf_file}
-                    </a>
-                  )
+                  <span className="d-flex align-items-center justify-content-center mt-2">Update PDF</span>
                 )}
               </div>
             </div>
@@ -273,6 +264,7 @@ const EditJournalForm = () => {
                   // disabled={isCreateJournals}
                   type="submit"
                   className="btn save"
+                  disabled={isPosted}
                 >
                   Сохранить
                 </button>
