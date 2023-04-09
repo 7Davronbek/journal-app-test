@@ -156,7 +156,9 @@ const EditJournalForm = () => {
                     {pdf_file.name}
                   </a>
                 ) : (
-                  <span className="d-flex align-items-center justify-content-center mt-2">Update PDF</span>
+                  <span className="d-flex align-items-center justify-content-center mt-2">
+                    Update PDF
+                  </span>
                 )}
               </div>
             </div>
