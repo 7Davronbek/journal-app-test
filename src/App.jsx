@@ -10,6 +10,7 @@ import {
   Login,
 } from "./pages";
 import { PageNotFound, ScrollToTop } from "./components";
+import ConferencePage from "./pages/conference/ConferencePage";
 
 const App = () => {
   return (
@@ -30,6 +31,13 @@ const App = () => {
         {/* <Route path="/edit-journal/:id" element={<EditJournal />} /> */}
         {/* <Route path="/journal/:id" element={<JournalId />} /> */}
         {/* article */}
+        
+        {/* conference */}
+        <Route path="/conferences" element={<ConferencePage />} />
+        {/* <Route path="/create-journal" element={<CreateJournal />} /> */}
+        {/* <Route path="/edit-journal/:id" element={<EditJournal />} /> */}
+        {/* <Route path="/journal/:id" element={<JournalId />} /> */}
+        {/* conference */}
 
 
 
