@@ -1,0 +1,26 @@
+.ConferenceMain {
+
+  .send {
+    background-color: #3c4bdc !important;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFFFFF;
+    padding: 16px 62px;
+    background: #3C4BDC;
+    border-radius: 8px;
+
+    svg {
+        font-size: 24px;
+    }
+  }
+
+  h1 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #020105;
+  }
+}
