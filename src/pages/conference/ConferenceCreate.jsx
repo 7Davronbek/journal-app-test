@@ -5,9 +5,20 @@ import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import "./style/index.scss";
+import { useEffect } from "react";
+import axios from "axios";
+import { API_PATH } from "../../constants";
+import { CONFIG } from "../../utils/axios";
 
 const ConferenceCreate = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const getDash = () => {
+      axios.get(API_PATH + "/user/dashboard/", CONFIG);
+    };
+    getDash();
+  }, []);
   return (
     <AdminLayout>
       <div className="ConferenceCreate">
@@ -28,11 +39,11 @@ const ConferenceCreate = () => {
             required
             id="standard-basic"
             variant="standard"
-            fullWidth 
+            fullWidth
           />
 
           <TextField
-            fullWidth 
+            fullWidth
             id="Phone-number-basic"
             className="me-4"
             type="number"
@@ -41,7 +52,7 @@ const ConferenceCreate = () => {
             variant="standard"
           />
           <TextField
-            fullWidth 
+            fullWidth
             id="Email-basic"
             className="me-4"
             label="Email"

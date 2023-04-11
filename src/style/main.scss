@@ -103,4 +103,8 @@ body {
     mask-image: url("../assets/icons/nav7.svg");
     -webkit-mask-image: url("../assets/icons/nav7.svg");
   }
+
+  .d-flex {
+    display: flex !important;
+  }
 }
