@@ -1,11 +1,18 @@
 import React from "react";
-import AdminLayout from '../../../components/admin/AdminLayout'
+import AdminLayout from "../../../components/admin/AdminLayout";
+import Button from '@mui/material/Button';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 const ConferenceMain = () => {
   return (
     <AdminLayout>
       <div className="ConferenceMain">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam officia tempore, magnam quae nemo cum a saepe. Labore rem consectetur laborum praesentium fugit nemo libero neque ipsam nesciunt delectus.
+        <div className="d-flex align-items-center justify-content-between">
+          <h1>Конференции</h1>
+          <Button variant="contained" endIcon={<AddOutlinedIcon />}>
+            Send
+          </Button>
+        </div>
       </div>
     </AdminLayout>
   );

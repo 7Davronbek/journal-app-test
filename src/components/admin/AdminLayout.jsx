@@ -64,13 +64,18 @@ const AdminLayout = (props) => {
               >
                 <i className="icon icon2"></i>Журналы
               </Link>
-              <Link 
+              <Link
                 className={`${location.pathname === "/articles" && "active"}`}
                 to="/articles"
-                >
+              >
                 <i className="icon icon3"></i>Статьи
               </Link>
-              <Link to="/journals">
+              <Link
+                className={`${
+                  location.pathname === "/conferences" && "active"
+                }`}
+                to="/conferences"
+              >
                 <i className="icon icon4"></i>Конференции
               </Link>
               <Link to="/journals">

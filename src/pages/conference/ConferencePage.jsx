@@ -1,5 +1,5 @@
 import React from "react";
-import ConferenceMain from "./components/ConferenceMain";
+import { ConferenceMain } from "./components";
 
 const ConferencePage = () => {
   return (

@@ -5,3 +5,4 @@ export { default as Home } from "./Home";
 export { default as JournalId } from "./JournalId";
 export { default as EditJournal } from "./EditJournal";
 export { default as ArticlePage } from "./articles/ArticlePage";
+export { default as ConferencePage } from "./conference/ConferencePage";

@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import {
   ArticlePage,
+  ConferencePage,
   CreateJournal,
   EditJournal,
   Home,
@@ -10,7 +11,6 @@ import {
   Login,
 } from "./pages";
 import { PageNotFound, ScrollToTop } from "./components";
-import ConferencePage from "./pages/conference/ConferencePage";
 
 const App = () => {
   return (
