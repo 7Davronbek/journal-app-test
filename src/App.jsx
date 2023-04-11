@@ -2,10 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import {
   ArticlePage,
+  ConferenceCreate,
   ConferencePage,
   CreateJournal,
   EditJournal,
-  Home,
+  // Home,
   JournalId,
   Journals,
   Login,
@@ -34,7 +35,7 @@ const App = () => {
         
         {/* conference */}
         <Route path="/conferences" element={<ConferencePage />} />
-        {/* <Route path="/create-journal" element={<CreateJournal />} /> */}
+        <Route path="/create-conference" element={<ConferenceCreate />} />
         {/* <Route path="/edit-journal/:id" element={<EditJournal />} /> */}
         {/* <Route path="/journal/:id" element={<JournalId />} /> */}
         {/* conference */}

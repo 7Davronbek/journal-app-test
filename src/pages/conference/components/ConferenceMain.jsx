@@ -3,6 +3,7 @@ import AdminLayout from "../../../components/admin/AdminLayout";
 import Button from "@mui/material/Button";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 
 const ConferenceMain = () => {
   const rows = [
@@ -43,13 +44,15 @@ const ConferenceMain = () => {
       <div className="ConferenceMain">
         <div className="d-flex align-items-center justify-content-between ">
           <h1>Конференции</h1>
-          <Button
-            className="send"
-            variant="contained"
-            endIcon={<AddOutlinedIcon />}
-          >
-            Добавить
-          </Button>
+          <Link to='/create-conference'>
+            <Button
+              className="send"
+              variant="contained"
+              endIcon={<AddOutlinedIcon />}
+            >
+              Добавить
+            </Button>
+          </Link>
         </div>
 
         <div style={{ height: 500, width: "100%" }}>
